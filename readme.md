@@ -4,4 +4,5 @@ Created a flask app for Event and resource allocation system, here I have attach
 
 Here is the working video
 
-<video controls src="event-1.mp4" title="Title"></video>
+![](event-1.mp4)
+
