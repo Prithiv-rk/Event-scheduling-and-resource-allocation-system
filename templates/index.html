@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Scheduling & Resource Allocation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🗓️ Event Scheduling & Resource Allocation</h1>
+            <p>Manage your events and resources efficiently</p>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('events', event)">Events</button>
+            <button class="tab" onclick="switchTab('resources', event)">Resources</button>
+            <button class="tab" onclick="switchTab('allocations', event)">Allocations</button>
+        </div>
+        
+        <div class="content">
+            <!-- Events Tab -->
+            <div id="events-tab" class="tab-content active">
+                <h2 style="margin-bottom: 20px; color: #212529;">Create New Event</h2>
+                <form id="event-form">
+                    <div class="form-group">
+                        <label>Event Name</label>
+                        <input type="text" id="event-name" required placeholder="Enter event name">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="event-description" placeholder="Enter event description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" id="event-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Start Time</label>
+                        <input type="time" id="event-start-time" required>
+                    </div>
+                    <div class="form-group">
+                        <label>End Time</label>
+                        <input type="time" id="event-end-time" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Event</button>
+                </form>
+                
+                <div class="list">
+                    <h2 style="margin-bottom: 20px; color: #212529;">All Events</h2>
+                    <div id="events-list"></div>
+                </div>
+            </div>
+            
+            <!-- Resources Tab -->
+            <div id="resources-tab" class="tab-content">
+                <h2 style="margin-bottom: 20px; color: #212529;">Add New Resource</h2>
+                <form id="resource-form">
+                    <div class="form-group">
+                        <label>Resource Name</label>
+                        <input type="text" id="resource-name" required placeholder="Enter resource name">
+                    </div>
+                    <div class="form-group">
+                        <label>Type</label>
+                        <select id="resource-type" required>
+                            <option value="">Select type</option>
+                            <option value="Room">Room</option>
+                            <option value="Equipment">Equipment</option>
+                            <option value="Vehicle">Vehicle</option>
+                            <option value="Personnel">Personnel</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Capacity/Quantity</label>
+                        <input type="number" id="resource-capacity" required placeholder="Enter capacity" min="1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Resource</button>
+                </form>
+                
+                <div class="list">
+                    <h2 style="margin-bottom: 20px; color: #212529;">All Resources</h2>
+                    <div id="resources-list"></div>
+                </div>
+            </div>
+            
+            <!-- Allocations Tab -->
+            <div id="allocations-tab" class="tab-content">
+                <h2 style="margin-bottom: 20px; color: #212529;">Allocate Resource to Event</h2>
+                <form id="allocation-form">
+                    <div class="form-group">
+                        <label>Select Event</label>
+                        <select id="alloc-event" required>
+                            <option value="">Select an event</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Resource</label>
+                        <select id="alloc-resource" required>
+                            <option value="">Select a resource</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity Needed</label>
+                        <input type="number" id="alloc-quantity" required placeholder="Enter quantity" min="1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Allocate Resource</button>
+                </form>
+                
+                <div class="list">
+                    <h2 style="margin-bottom: 20px; color: #212529;">All Allocations</h2>
+                    <div id="allocations-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
